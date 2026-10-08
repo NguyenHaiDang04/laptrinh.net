@@ -1,0 +1,8 @@
++ git clone https://github.com/NguyenHaiDang04/laptrinh.net.git 
+
++ cd laptrinh.net
+
++git add .
+git commit -m "Chuyển project WinFormsApp01 vào repo chung"
+git push origin main (marter) 
+
