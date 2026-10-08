@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="../Bai1_TinhCuocDichVu/Bai1_TinhCuocDichVu.csproj" />
+  <Project Path="../Bai2_QuanLySuCoIT/Bai2_QuanLySuCoIT.csproj" Id="536b8e03-77fa-462c-b142-070779e149b4" />
   <Project Path="BaiTapWinForms_NguyenHaiDang.csproj" />
 </Solution>

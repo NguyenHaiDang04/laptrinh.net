@@ -11,4 +11,8 @@
 
 
 ---
+## BÀI 2 :Form Tiếp nhận & Phân loại sự cố IT
+![Giao diện chính](./screenshots/bai2(1).png)
+![Chạy thử](./screenshots/bai2(2).png)
+
 
