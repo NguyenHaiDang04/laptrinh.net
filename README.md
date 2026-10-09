@@ -15,4 +15,10 @@
 ![Giao diện chính](./screenshots/bai2(1).png)
 ![Chạy thử](./screenshots/bai2(2).png)
 
+---
+## BÀI 3 :Quản lý danh mục Vật tư / Linh kiện (Item List Manager)
+![Giao diện chính](./screenshots/bai3(1).png)
+![Giao diện chính](./screenshots/bai3(2).png)
+
+
 
