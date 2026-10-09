@@ -3,5 +3,6 @@
   <Project Path="../Bai2_QuanLySuCoIT/Bai2_QuanLySuCoIT.csproj" Id="536b8e03-77fa-462c-b142-070779e149b4" />
   <Project Path="../Bai3_QuanLyVatTu/Bai3_QuanLyVatTu.csproj" Id="4e0c440f-f422-4d6d-b759-14b5a4f97b2e" />
   <Project Path="../Bai4_DatBan/Bai4_DatBan.csproj" Id="4a1f5322-134a-48c4-96c3-3be0f042d637" />
+  <Project Path="../Bai5_QuanLyDonHang/Bai5_QuanLyDonHang.csproj" Id="8a13fd1d-e227-4c4d-8aee-d36742d50e1b" />
   <Project Path="BaiTapWinForms_NguyenHaiDang.csproj" />
 </Solution>

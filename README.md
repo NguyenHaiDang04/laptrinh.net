@@ -25,6 +25,11 @@
 ![Giao diện chính](./screenshots/bai4(1).png)
 ![Chạy thử ](./screenshots/bai4(2).png)
 
+## BÀI 5 :Bảng điều khiển Quản lý Đơn giao hàng (Delivery Order Dashboard)
+![Giao diện chính](./screenshots/bai5(1).png)
+![Chạy thử thêm](./screenshots/bai5(2).png)
+![Chạy thử xóa ](./screenshots/bai5(3).png)
+
 
 
 
