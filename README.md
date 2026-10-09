@@ -21,7 +21,7 @@
 ![Chạy thử ](./screenshots/bai3(2).png)
 
 ---
-## BÀI 3 :Sơ đồ chọn vị trí chỗ ngồi / Đặt bàn hẹn giờ (Interactive Slot Booking)
+## BÀI 4 :Sơ đồ chọn vị trí chỗ ngồi / Đặt bàn hẹn giờ (Interactive Slot Booking)
 ![Giao diện chính](./screenshots/bai4(1).png)
 ![Chạy thử ](./screenshots/bai4(2).png)
 
