@@ -18,7 +18,14 @@
 ---
 ## BÀI 3 :Quản lý danh mục Vật tư / Linh kiện (Item List Manager)
 ![Giao diện chính](./screenshots/bai3(1).png)
-![Giao diện chính](./screenshots/bai3(2).png)
+![Chạy thử ](./screenshots/bai3(2).png)
+
+---
+## BÀI 3 :Sơ đồ chọn vị trí chỗ ngồi / Đặt bàn hẹn giờ (Interactive Slot Booking)
+![Giao diện chính](./screenshots/bai4(1).png)
+![Chạy thử ](./screenshots/bai4(2).png)
+
+
 
 
 
