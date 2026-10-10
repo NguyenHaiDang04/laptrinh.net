@@ -35,7 +35,7 @@
 ## BÀI 5.1: FORM ĐĂNG KÝ TÀI KHOẢN VÀ BẮT LỖI GIAO DIỆN (ERRORPROVIDER)
 ![Giao diện chính](./screenshots/bai5.1(1).png)
 ![Chạy thử thêm](./screenshots/bai5.1(2).png)
-![Chạy thử xóa ](./screenshots/bai5.1(3).png(3).png)
+![Chạy thử xóa ](./screenshots/bai5.1(3).png)
 
 
 ---
