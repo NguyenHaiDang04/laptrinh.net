@@ -47,7 +47,7 @@
 ---
 ## BÀI  5.3: FORM QUẢN LÝ DANH SÁCH SẢN PHẨM TRONG BỘ NHỚ (DATAGRIDVIEW CƠ BẢN)
 ![Giao diện chính](./screenshots/bai5.3(1).png)
-![Chạy thử ](./screenshots/bai5.(2).png)
+![Chạy thử ](./screenshots/bai5.3(2).png)
 
 
 ---
