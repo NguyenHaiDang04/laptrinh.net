@@ -56,6 +56,26 @@
 ![Chạy thử ](./screenshots/bai5.4(2).png)
 
 
+---
+## BÀI 4.6: QUẢN LÝ DỮ LIỆU VỚI BINDINGSOURCE & XỬ LÝ FILE (AVATAR / CSV)
+![Giao diện chính](./screenshots/bai4.6(1).png)
+![Chạy thử thêm  ](./screenshots/bai4.6(2).png)
+![Chạy thử xuất file ](./screenshots/bai4.6(3).png)
+
+---
+## BÀI 4.7: THIẾT KẾ KHUNG ỨNG DỤNG MDI & QUẢN LÝ ĐA CỬA SỔ 
+![Giao diện chính](./screenshots/bai4.7(1).png)
+![Chạy thử thêm làm mới  ](./screenshots/bai4.7(2).png)
+![Chạy thử xuất xóa  ](./screenshots/bai4.7(3).png)
+
+
+---
+## BÀI 4.8: LẬP TRÌNH BẤT ĐỒNG BỘ (ASYNC/AWAIT) & TIẾN TRÌNH  PROGRESSBAR (Em đã gộp chung Bài 4.8 (Nạp dữ liệu bất đồng bộ) làm một Form con (MDI Child) bên trong FormMain của Bài 4.7. Thầy  có thể mở chức năng này bằng cách chọn Menu Danh mục > Quản lý Sản phẩm)
+![Giao diện chính](./screenshots/bai4.8(1).png)
+![chạy hoàn thành ](./screenshots/bai4.8(2).png)
+
+
+
 
 
 
