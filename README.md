@@ -74,6 +74,31 @@
 ![Giao diện chính](./screenshots/bai4.8(1).png)
 ![chạy hoàn thành ](./screenshots/bai4.8(2).png)
 
+---
+## BÀI 4.9:Quản lý lịch hẹn phòng khám
+![Giao diện chính](./screenshots/bai4.9(1).png)
+![Chạy tìm số không sai  ](./screenshots/bai4.9(2).png)
+![Chạy thử  đúng  ](./screenshots/bai4.9(3).png)
+
+---
+## BÀI 4.10:2: Quản lý mượn trả thiết bị tại phòng thực hành
+![Giao diện chính](./screenshots/bai4.10(1).png)
+![Chạy làm mới thay đổi thông tin   ](./screenshots/bai4.10(2).png)
+![Chạy thử  ngày trả sau ngày mượn  ](./screenshots/bai4.10(3).png)
+
+---
+## BÀI 4.11:Quản lý đơn đăng ký dịch vụ sửa chữa
+![Giao diện chính](./screenshots/bai4.11(1).png)
+![Chạy tìm ko cho nhập tiền âm  ](./screenshots/bai4.11(2).png)
+
+
+
+
+
+
+
+
+
 
 
 
