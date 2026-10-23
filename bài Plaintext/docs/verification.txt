@@ -1,0 +1,42 @@
+﻿WinForms TEST 02 - kiểm tra chạy thực tế (.NET Framework 4.8)
+Ngày kiểm tra: 2026-10-23 09:54:20
+CheckForIllegalCrossThreadCalls = true
+PASS: Bài 1: chặn tên, điện thoại và phí không hợp lệ
+PASS: Bài 1: thêm hội viên và tự sinh mã
+PASS: Bài 1: chưa ghi dữ liệu khi chưa bấm Sửa
+PASS: Bài 1: Sửa đồng bộ toàn bộ các ô về BindingList
+PASS: Bài 1: lưới cập nhật ngay sau Sửa
+PASS: Bài 1: model thay đổi thông báo ngược lên control
+PASS: Bài 1: mã không tái sử dụng sau khi xóa
+PASS: Bài 2: nạp dữ liệu CSV mẫu
+PASS: Bài 2: thêm sách và tổng số đầu sách
+PASS: Bài 2: sửa sách
+PASS: Bài 2: CSV round-trip tiếng Việt, dấu phẩy, ngoặc kép và đường dẫn ảnh
+PASS: Bài 2: lưu đè CSV an toàn
+PASS: Bài 2: tìm kiếm sách
+PASS: Bài 2: CSV lỗi không làm mất danh sách đang có
+PASS: Bài 3: không mở trùng form bệnh nhân
+PASS: Bài 3: chọn bệnh nhân đồng bộ lên ô nhập
+PASS: Bài 3: sửa hồ sơ bệnh nhân
+PASS: Bài 3: khôi phục form đang thu nhỏ
+PASS: Bài 3: mở đủ bệnh nhân, bác sĩ/lịch trực, khoa/phòng
+PASS: Bài 3: mở lại form đã đóng bằng instance mới
+PASS: Bài 3: đóng tất cả form con
+PASS: Bài 4: UI tiếp tục xử lý sự kiện trong lúc chạy nền
+PASS: Bài 4: tiến độ tăng khi công việc đang chạy
+PASS: Bài 4: khóa nút chạy trùng và bật nút Hủy
+PASS: Bài 4: hủy tác vụ an toàn qua nút Hủy
+PASS: Bài 4: sau hủy dừng tiến độ, khôi phục trạng thái nút
+PASS: Bài 4: thời gian thực tế trong 4–6 giây (5,21 giây)
+PASS: Bài 4: UI xử lý liên tục sự kiện Timer trong toàn bộ lượt thống kê
+PASS: Bài 4: chạy lại sau hủy, trả về 30 giao dịch
+PASS: Bài 4: kết quả đúng khoảng ngày và chi nhánh đã chọn
+PASS: Bài 4: hoàn thành đạt 100% và khôi phục trạng thái nút
+PASS: Bài 4: chặn khoảng ngày đảo ngược
+PASS: Bài 5: chống khởi chạy nhiều vòng lặp
+PASS: Bài 5: cập nhật mỗi 2 giây, không có lỗi cross-thread
+PASS: Bài 5: tạm dừng không phát sinh cập nhật
+PASS: Bài 5: tiếp tục và giữ lịch sử
+PASS: Bài 5: đóng form dừng tác vụ nền
+PASS: Bài 4: đóng form hủy tác vụ nền
+RESULT: PASS

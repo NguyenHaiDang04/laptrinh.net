@@ -1,0 +1,10 @@
+# Visual Studio / C#
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+TestResults/
+*.log

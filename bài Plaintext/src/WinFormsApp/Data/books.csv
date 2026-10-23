@@ -1,0 +1,4 @@
+BookId,Title,Author,UnitPrice,Quantity,CoverPath
+S001,Lập trình C# căn bản,Nguyễn Văn An,120000,10,Images/book-cover.png
+S002,"WinForms, thực hành",Trần Minh Bình,150000,8,Images/book-cover.png
+S003,Cấu trúc dữ liệu,Lê Thanh Hà,180000,5,Images/book-cover.png
