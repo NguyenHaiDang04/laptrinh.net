@@ -1,0 +1,10 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.mdf
+*.ldf
+*.bak
+.verificationData/
+docs/test-temp/

@@ -1,0 +1,7 @@
+﻿Mã đăng ký: 1
+Họ tên: Nguyễn Hải Đăng
+Giới tính: Khác
+Ngày sinh: 21/09/2004
+Điện thoại: 0912345678
+Khóa học: Lập trình C# căn bản
+Nhận thông báo: Có
