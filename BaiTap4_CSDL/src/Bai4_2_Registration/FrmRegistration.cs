@@ -11,6 +11,7 @@ namespace Bai4_2_Registration
     {
         private readonly DatabaseInitializer initializer;
         private readonly RegistrationService service;
+        private readonly SinhVienService sinhVienService;
         private readonly IUserMessages messages;
         private bool busy;
         public Task ReadyTask { get; private set; } = Task.CompletedTask;
@@ -21,6 +22,7 @@ namespace Bai4_2_Registration
         {
             InitializeComponent();
             initializer = new DatabaseInitializer(options); service = new RegistrationService(options); this.messages = messages;
+            sinhVienService = new SinhVienService(options);
             dtpBirthDate.MaxDate = DateTime.Today; dtpBirthDate.Value = DateTime.Today.AddYears(-18);
             dtpBirthDate.HandleCreated += (sender, args) => ApplyShortDateFormat();
         }
@@ -54,13 +56,15 @@ namespace Bai4_2_Registration
         private async Task ReloadAsync()
         {
             var courses = await service.GetCoursesAsync(); var records = await service.GetRegistrationsAsync();
+            var sinhViens = await sinhVienService.GetAllAsync();
             if (IsDisposed) return;
             object selected = cboCourse.SelectedValue;
             cboCourse.DisplayMember = "CourseName"; cboCourse.ValueMember = "CourseId"; cboCourse.DataSource = courses;
             if (selected != null) cboCourse.SelectedValue = selected;
             if (cboCourse.SelectedIndex < 0 && courses.Count > 0) cboCourse.SelectedIndex = 0;
             dgvRegistrations.DataSource = records;
-            lblCount.Text = "Đã lưu: " + records.Count + " đăng ký";
+            dgvSinhVien.DataSource = sinhViens;
+            lblCount.Text = "Đã lưu: " + records.Count + " đăng ký | Sinh viên: " + sinhViens.Count;
         }
         private void btnRegister_Click(object sender, EventArgs e) { CurrentTask = RegisterAsync(); }
         private void btnRefresh_Click(object sender, EventArgs e) { CurrentTask = RefreshAsync(); }

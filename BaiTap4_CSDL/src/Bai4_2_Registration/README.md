@@ -1,12 +1,12 @@
-# Bài 4.2 - Đăng ký học viên và CSDL
+# Bài 4.2 - Form đăng ký học viên
 
-Mở [solution chung](../../BaiTap4_CSDL.sln), chọn project **Bai4_2_Registration** làm Startup Project rồi nhấn F5.
+Mở [BaiTap4_CSDL.sln](../../BaiTap4_CSDL.sln), chọn **Bai4_2_Registration** làm Startup Project rồi nhấn F5.
 
-- Giao diện: [FrmRegistration.Designer.cs](FrmRegistration.Designer.cs), [FrmRegistration.resx](FrmRegistration.resx).
-- Xử lý: [FrmRegistration.cs](FrmRegistration.cs), [Program.cs](Program.cs).
-- Đọc khóa học/lưu đăng ký: [RegistrationService.cs](../Shared/RegistrationService.cs).
-- Mask điện thoại `(000) 000-0000`, DateTimePicker, ComboBox binding, RadioButton, CheckBox.
-- Lưu thành công mới hiện MessageBox tổng hợp; đóng mở lại vẫn còn dữ liệu.
-- Chặn trùng số điện thoại trong cùng một khóa học.
+- Nhập thông tin bằng MaskedTextBox, DateTimePicker, ComboBox, RadioButton và CheckBox.
+- Khóa học được nạp từ CSDL; đăng ký được lưu trước khi hiện MessageBox tổng hợp.
+- Tab Sinh viên hiển thị bảng SinhVien với 3 dòng dữ liệu mẫu.
+- CSDL mặc định: `ql_sinhvien` trên SQL Server LocalDB.
 
-Xem [hướng dẫn cài đặt và báo cáo chung](../../README.md). Cần tải cả thư mục `BaiTap4_CSDL` để có project `Shared`.
+Mã xử lý: [FrmRegistration.cs](FrmRegistration.cs). Giao diện: [FrmRegistration.Designer.cs](FrmRegistration.Designer.cs).
+
+Cần tải toàn bộ thư mục BaiTap4_CSDL để có project Shared. Xem [hướng dẫn chung](../../README.md).

@@ -23,6 +23,7 @@
     <Compile Include="Models.cs" />
     <Compile Include="PasswordHasher.cs" />
     <Compile Include="RegistrationService.cs" />
+    <Compile Include="SinhVienService.cs" />
     <Compile Include="UserMessages.cs" />
     <EmbeddedResource Include="Database\Schema.sql"><LogicalName>BaiTap4.Shared.Database.Schema.sql</LogicalName></EmbeddedResource>
     <Reference Include="System" />

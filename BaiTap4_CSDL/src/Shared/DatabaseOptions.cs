@@ -23,7 +23,7 @@ namespace BaiTap4.Shared
         {
             return new DatabaseOptions(
                 Environment.GetEnvironmentVariable("LTNET_SQL_SERVER") ?? @"(localdb)\MSSQLLocalDB",
-                Environment.GetEnvironmentVariable("LTNET_DB_NAME") ?? "LTNET_Bai4_CSDL",
+                Environment.GetEnvironmentVariable("LTNET_DB_NAME") ?? "ql_sinhvien",
                 Environment.GetEnvironmentVariable("LTNET_DB_DIRECTORY") ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LTNET", "BaiTap4_CSDL"));
         }
 

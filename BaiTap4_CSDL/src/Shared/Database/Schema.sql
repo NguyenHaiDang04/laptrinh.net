@@ -1,4 +1,4 @@
--- SQL Server / LocalDB. Chạy trong CSDL LTNET_Bai4_CSDL.
+-- SQL Server / LocalDB. CSDL mặc định: ql_sinhvien.
 -- Script được ứng dụng chạy tự động; chạy lại không xóa dữ liệu hiện có.
 IF OBJECT_ID(N'dbo.AppUsers', N'U') IS NULL
 BEGIN
@@ -60,3 +60,28 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Courses WHERE CourseCode = 'SQL01')
 
 -- Tài khoản mẫu được ứng dụng tạo bằng PBKDF2 và salt ngẫu nhiên.
 -- Không ghi mật khẩu dạng rõ trong bảng hay nhật ký.
+
+-- Bảng bổ sung theo dữ liệu sinh viên được cung cấp.
+-- NVARCHAR giữ tiếng Việt, tương đương VARCHAR/utf8mb4 trong MySQL.
+IF OBJECT_ID(N'dbo.SinhVien', N'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.SinhVien (
+        MaSV VARCHAR(20) NOT NULL PRIMARY KEY,
+        HoTen NVARCHAR(100) NOT NULL,
+        NgaySinh DATE NULL,
+        GioiTinh NVARCHAR(10) NULL,
+        Lop NVARCHAR(50) NULL,
+        DiemTB DECIMAL(4,2) NULL
+    );
+END;
+
+-- Chỉ thêm mã chưa có, không ghi đè sinh viên đã được chỉnh sửa.
+IF NOT EXISTS (SELECT 1 FROM dbo.SinhVien WHERE MaSV = 'SV001')
+    INSERT dbo.SinhVien(MaSV, HoTen, NgaySinh, GioiTinh, Lop, DiemTB)
+    VALUES ('SV001', N'Nguyễn Văn An', '20030515', N'Nam', N'CNTT K18', 8.50);
+IF NOT EXISTS (SELECT 1 FROM dbo.SinhVien WHERE MaSV = 'SV002')
+    INSERT dbo.SinhVien(MaSV, HoTen, NgaySinh, GioiTinh, Lop, DiemTB)
+    VALUES ('SV002', N'Trần Thị Bình', '20030820', N'Nữ', N'CNTT K18', 9.20);
+IF NOT EXISTS (SELECT 1 FROM dbo.SinhVien WHERE MaSV = 'SV003')
+    INSERT dbo.SinhVien(MaSV, HoTen, NgaySinh, GioiTinh, Lop, DiemTB)
+    VALUES ('SV003', N'Lê Hoàng Cường', '20021110', N'Nam', N'Kế Toán K18', 7.40);

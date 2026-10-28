@@ -14,6 +14,10 @@ namespace Bai4_2_Registration
         private System.Windows.Forms.Button btnRegister, btnRefresh, btnExit;
         private System.Windows.Forms.Panel pnlInputs;
         private System.Windows.Forms.DataGridView dgvRegistrations;
+        private System.Windows.Forms.TabControl tabData;
+        private System.Windows.Forms.TabPage tabRegistrations, tabSinhVien;
+        private System.Windows.Forms.DataGridView dgvSinhVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaSV, colHoTen, colNgaySinh, colGioiTinh, colLop, colDiemTB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId, colName, colPhone, colBirth, colGender, colCourse;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colNews;
         private System.Windows.Forms.ErrorProvider errorProvider;
@@ -47,6 +51,16 @@ namespace Bai4_2_Registration
             this.btnExit = new System.Windows.Forms.Button();
             this.pnlInputs = new System.Windows.Forms.Panel();
             this.dgvRegistrations = new System.Windows.Forms.DataGridView();
+            this.tabData = new System.Windows.Forms.TabControl();
+            this.tabRegistrations = new System.Windows.Forms.TabPage();
+            this.tabSinhVien = new System.Windows.Forms.TabPage();
+            this.dgvSinhVien = new System.Windows.Forms.DataGridView();
+            this.colMaSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiemTB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +71,8 @@ namespace Bai4_2_Registration
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
+            this.tabData.SuspendLayout(); this.tabRegistrations.SuspendLayout(); this.tabSinhVien.SuspendLayout();
             this.grpGender.SuspendLayout(); this.pnlInputs.SuspendLayout(); this.SuspendLayout();
             // Tiêu đề
             this.lblTitle.Location = new System.Drawing.Point(22, 16);
@@ -104,8 +120,7 @@ namespace Bai4_2_Registration
             this.lblStatus.Location = new System.Drawing.Point(20, 304); this.lblStatus.Size = new System.Drawing.Size(900, 26); this.lblStatus.Name = "lblStatus"; this.lblStatus.Text = "Đang chuẩn bị CSDL...";
             this.lblCount.Location = new System.Drawing.Point(20, 340); this.lblCount.Size = new System.Drawing.Size(900, 26); this.lblCount.Name = "lblCount"; this.lblCount.Text = "Đã lưu: 0 đăng ký";
             // Danh sách đã lưu trong CSDL
-            this.dgvRegistrations.Location = new System.Drawing.Point(20, 371); this.dgvRegistrations.Size = new System.Drawing.Size(900, 240); this.dgvRegistrations.Name = "dgvRegistrations";
-            this.dgvRegistrations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRegistrations.Dock = System.Windows.Forms.DockStyle.Fill; this.dgvRegistrations.Name = "dgvRegistrations";
             this.dgvRegistrations.AutoGenerateColumns = false;
             this.dgvRegistrations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegistrations.ReadOnly = true; this.dgvRegistrations.AllowUserToAddRows = false; this.dgvRegistrations.AllowUserToDeleteRows = false; this.dgvRegistrations.RowHeadersVisible = false;
@@ -118,6 +133,24 @@ namespace Bai4_2_Registration
             this.colCourse.DataPropertyName = "CourseName"; this.colCourse.HeaderText = "Khóa học"; this.colCourse.FillWeight = 170;
             this.colNews.DataPropertyName = "ReceiveNews"; this.colNews.HeaderText = "Nhận tin"; this.colNews.FillWeight = 65;
             this.dgvRegistrations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.colId, this.colName, this.colPhone, this.colBirth, this.colGender, this.colCourse, this.colNews });
+            // Hai tab: giữ danh sách đăng ký và bổ sung dữ liệu SinhVien.
+            this.tabData.Location = new System.Drawing.Point(20, 371); this.tabData.Size = new System.Drawing.Size(900, 240); this.tabData.Name = "tabData";
+            this.tabData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabRegistrations.Text = "Đăng ký học viên"; this.tabRegistrations.Name = "tabRegistrations"; this.tabRegistrations.Controls.Add(this.dgvRegistrations);
+            this.tabSinhVien.Text = "Sinh viên"; this.tabSinhVien.Name = "tabSinhVien"; this.tabSinhVien.Controls.Add(this.dgvSinhVien);
+            this.tabData.Controls.Add(this.tabRegistrations); this.tabData.Controls.Add(this.tabSinhVien);
+            this.dgvSinhVien.Name = "dgvSinhVien"; this.dgvSinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSinhVien.AutoGenerateColumns = false; this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSinhVien.ReadOnly = true; this.dgvSinhVien.AllowUserToAddRows = false; this.dgvSinhVien.AllowUserToDeleteRows = false;
+            this.dgvSinhVien.RowHeadersVisible = false; this.dgvSinhVien.MultiSelect = false;
+            this.dgvSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect; this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
+            this.colMaSV.DataPropertyName = "MaSV"; this.colMaSV.HeaderText = "Mã SV"; this.colMaSV.FillWeight = 65;
+            this.colHoTen.DataPropertyName = "HoTen"; this.colHoTen.HeaderText = "Họ tên"; this.colHoTen.FillWeight = 150;
+            this.colNgaySinh.DataPropertyName = "NgaySinh"; this.colNgaySinh.HeaderText = "Ngày sinh"; this.colNgaySinh.DefaultCellStyle.Format = "dd/MM/yyyy";
+            this.colGioiTinh.DataPropertyName = "GioiTinh"; this.colGioiTinh.HeaderText = "Giới tính"; this.colGioiTinh.FillWeight = 65;
+            this.colLop.DataPropertyName = "Lop"; this.colLop.HeaderText = "Lớp"; this.colLop.FillWeight = 110;
+            this.colDiemTB.DataPropertyName = "DiemTB"; this.colDiemTB.HeaderText = "Điểm TB"; this.colDiemTB.DefaultCellStyle.Format = "F2"; this.colDiemTB.FillWeight = 70;
+            this.dgvSinhVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.colMaSV, this.colHoTen, this.colNgaySinh, this.colGioiTinh, this.colLop, this.colDiemTB });
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink; this.errorProvider.ContainerControl = this;
             // Form
             this.AcceptButton = this.btnRegister; this.CancelButton = this.btnExit;
@@ -126,9 +159,11 @@ namespace Bai4_2_Registration
             this.Font = new System.Drawing.Font("Segoe UI", 10F); this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Name = "FrmRegistration"; this.Text = "Bài 4.2 - Đăng ký học viên với CSDL";
             this.Controls.Add(this.lblTitle); this.Controls.Add(this.pnlInputs); this.Controls.Add(this.btnRegister); this.Controls.Add(this.btnRefresh); this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.lblStatus); this.Controls.Add(this.lblCount); this.Controls.Add(this.dgvRegistrations);
+            this.Controls.Add(this.lblStatus); this.Controls.Add(this.lblCount); this.Controls.Add(this.tabData);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
+            this.tabData.ResumeLayout(false); this.tabRegistrations.ResumeLayout(false); this.tabSinhVien.ResumeLayout(false);
             this.grpGender.ResumeLayout(false); this.pnlInputs.ResumeLayout(false); this.pnlInputs.PerformLayout(); this.ResumeLayout(false);
         }
     }

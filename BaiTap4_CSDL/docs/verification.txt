@@ -1,9 +1,13 @@
 ﻿BÀI 4.1 + 4.2 - KIỂM TRA CSDL THẬT VÀ WINFORMS
-Thời gian (Asia/Bangkok): 2026-10-28 16:39:54
-SQL Server: (localdb)\MSSQLLocalDB | Database: LTNET_Bai4_Verification_20261028093954
+Thời gian (Asia/Bangkok): 2026-10-28 17:02:49
+SQL Server: (localdb)\MSSQLLocalDB | Database: LTNET_Bai4_Verification_20261028100249
 PASS: Chỉ kiểm tra trên CSDL riêng, không sử dụng CSDL bài làm
 PASS: Khởi tạo lặp không nhân đôi tài khoản mẫu
 PASS: CSDL có đủ 3 khóa học mẫu, không nhân đôi khi khởi tạo lại
+PASS: SinhVien: đúng cả 6 trường của 3 sinh viên mẫu, không nhân đôi khi khởi tạo lại
+PASS: SinhVien: đúng 6 cột, DiemTB có kiểu DECIMAL(4,2)
+PASS: SinhVien: khởi tạo lại giữ nguyên dữ liệu đã chỉnh sửa
+PASS: SinhVien: đọc được trường NULL đúng như cấu trúc bảng được cung cấp
 PASS: Mật khẩu lưu hash PBKDF2-SHA256 và salt, không có cột mật khẩu dạng rõ
 PASS: Cùng mật khẩu có salt khác sẽ tạo hash khác
 PASS: Bài 4.1: kết nối CSDL thành công, bật nút Đăng nhập
@@ -24,6 +28,7 @@ PASS: Bài 4.2: khởi tạo CSDL và bật nút Đăng ký
 PASS: Bài 4.2: Mask điện thoại đúng (000) 000-0000
 PASS: Bài 4.2: dùng Format Short, văn hóa hiển thị ngày dd/MM/yyyy
 PASS: Bài 4.2: ComboBox binding khóa học từ CSDL với DisplayMember và ValueMember
+PASS: Bài 4.2: tab Sinh viên hiển thị 3 sinh viên và đủ 6 cột từ CSDL
 PASS: Bài 4.2: tên trống và điện thoại chưa đủ không được lưu
 PASS: Bài 4.2: control Windows thực sự hiển thị dd/MM/yyyy kể cả khi vùng máy là en-US
 PASS: Bài 4.2: RadioButton chỉ cho chọn một giới tính
@@ -37,4 +42,5 @@ PASS: Bài 4.2: lưu được cả trạng thái bỏ chọn CheckBox và RadioB
 PASS: Bài 4.2: đóng rồi mở form vẫn đọc được dữ liệu đã lưu
 PASS: Bài 4.2: tầng dữ liệu cũng chặn ngày sinh tương lai
 PASS: CSDL lưu bền: một tiến trình mới độc lập đọc lại được ít nhất 2 đăng ký
+PASS: Cập nhật schema giữ đủ dữ liệu đăng ký và dữ liệu SinhVien
 RESULT: PASS

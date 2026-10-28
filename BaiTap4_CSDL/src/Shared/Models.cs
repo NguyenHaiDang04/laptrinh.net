@@ -2,6 +2,16 @@ using System;
 
 namespace BaiTap4.Shared
 {
+    public sealed class SinhVien
+    {
+        public string MaSV { get; set; }
+        public string HoTen { get; set; }
+        public DateTime? NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
+        public string Lop { get; set; }
+        public decimal? DiemTB { get; set; }
+    }
+
     public sealed class Course
     {
         public int CourseId { get; set; }

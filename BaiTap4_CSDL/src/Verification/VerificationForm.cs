@@ -70,6 +70,30 @@ namespace Verification
             var initializer = new DatabaseInitializer(options); await initializer.EnsureCreatedAsync(); await initializer.EnsureCreatedAsync();
             Check(Convert.ToInt32(Scalar("SELECT COUNT(*) FROM dbo.AppUsers WHERE Username=N'admin'")) == 1, "Khởi tạo lặp không nhân đôi tài khoản mẫu");
             Check(Convert.ToInt32(Scalar("SELECT COUNT(*) FROM dbo.Courses")) == 3, "CSDL có đủ 3 khóa học mẫu, không nhân đôi khi khởi tạo lại");
+            var sinhVienService = new SinhVienService(options);
+            var sinhViens = await sinhVienService.GetAllAsync();
+            var expectedStudents = new[] {
+                new SinhVien { MaSV = "SV001", HoTen = "Nguyễn Văn An", NgaySinh = new DateTime(2003, 5, 15), GioiTinh = "Nam", Lop = "CNTT K18", DiemTB = 8.50M },
+                new SinhVien { MaSV = "SV002", HoTen = "Trần Thị Bình", NgaySinh = new DateTime(2003, 8, 20), GioiTinh = "Nữ", Lop = "CNTT K18", DiemTB = 9.20M },
+                new SinhVien { MaSV = "SV003", HoTen = "Lê Hoàng Cường", NgaySinh = new DateTime(2002, 11, 10), GioiTinh = "Nam", Lop = "Kế Toán K18", DiemTB = 7.40M }
+            };
+            Check(sinhViens.Count == 3 && expectedStudents.All(expected => sinhViens.Any(actual =>
+                actual.MaSV == expected.MaSV && actual.HoTen == expected.HoTen && actual.NgaySinh == expected.NgaySinh &&
+                actual.GioiTinh == expected.GioiTinh && actual.Lop == expected.Lop && actual.DiemTB == expected.DiemTB)),
+                "SinhVien: đúng cả 6 trường của 3 sinh viên mẫu, không nhân đôi khi khởi tạo lại");
+            Check(Convert.ToInt32(Scalar("SELECT COUNT(*) FROM sys.columns WHERE object_id=OBJECT_ID(N'dbo.SinhVien')")) == 6 &&
+                Convert.ToInt32(Scalar("SELECT COUNT(*) FROM sys.columns WHERE object_id=OBJECT_ID(N'dbo.SinhVien') AND name=N'DiemTB' AND precision=4 AND scale=2")) == 1,
+                "SinhVien: đúng 6 cột, DiemTB có kiểu DECIMAL(4,2)");
+            // Thay đổi trên CSDL kiểm tra để xác nhận seed không ghi đè dữ liệu đã sửa.
+            Scalar("UPDATE dbo.SinhVien SET DiemTB=8.75 WHERE MaSV='SV001'; SELECT 1");
+            await initializer.EnsureCreatedAsync();
+            Check(Convert.ToDecimal(Scalar("SELECT DiemTB FROM dbo.SinhVien WHERE MaSV='SV001'")) == 8.75M,
+                "SinhVien: khởi tạo lại giữ nguyên dữ liệu đã chỉnh sửa");
+            Scalar("UPDATE dbo.SinhVien SET DiemTB=8.50 WHERE MaSV='SV001'; INSERT dbo.SinhVien(MaSV,HoTen) VALUES('SV_TEST',N'Sinh viên kiểm tra'); SELECT 1");
+            var nullableStudent = (await sinhVienService.GetAllAsync()).Single(sv => sv.MaSV == "SV_TEST");
+            Check(nullableStudent.NgaySinh == null && nullableStudent.GioiTinh == null && nullableStudent.Lop == null && nullableStudent.DiemTB == null,
+                "SinhVien: đọc được trường NULL đúng như cấu trúc bảng được cung cấp");
+            Scalar("DELETE dbo.SinhVien WHERE MaSV='SV_TEST'; SELECT 1");
             Check(Convert.ToInt32(Scalar("SELECT COUNT(*) FROM dbo.AppUsers WHERE DATALENGTH(PasswordHash)=32 AND DATALENGTH(PasswordSalt)=16 AND PasswordIterations>=100000")) == 1,
                 "Mật khẩu lưu hash PBKDF2-SHA256 và salt, không có cột mật khẩu dạng rõ");
             var saltA = PasswordHasher.NewSalt(); var saltB = PasswordHasher.NewSalt();
@@ -114,6 +138,13 @@ namespace Verification
                 Check(birth.Format == DateTimePickerFormat.Short && System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern == "dd/MM/yyyy", "Bài 4.2: dùng Format Short, văn hóa hiển thị ngày dd/MM/yyyy");
                 Check(course.DisplayMember == "CourseName" && course.ValueMember == "CourseId" && course.Items.Count == 3 && course.SelectedValue is int,
                     "Bài 4.2: ComboBox binding khóa học từ CSDL với DisplayMember và ValueMember");
+                var tabs = Find<TabControl>(form, "tabData"); tabs.SelectedTab = Find<TabPage>(form, "tabSinhVien");
+                await Task.Delay(100);
+                var studentGrid = Find<DataGridView>(form, "dgvSinhVien");
+                Check(studentGrid.Rows.Count == 3 && studentGrid.Columns.Count == 6 && studentGrid.ReadOnly,
+                    "Bài 4.2: tab Sinh viên hiển thị 3 sinh viên và đủ 6 cột từ CSDL");
+                Snapshot(form, "bai4_2_sinhvien.png");
+                tabs.SelectedTab = Find<TabPage>(form, "tabRegistrations");
                 name.Text = " "; phone.Text = "123"; register.PerformClick(); await form.CurrentTask;
                 Check(Convert.ToInt32(Scalar("SELECT COUNT(*) FROM dbo.Registrations")) == 0, "Bài 4.2: tên trống và điện thoại chưa đủ không được lưu");
                 name.Text = "Nguyễn Hải Đăng"; phone.Text = "0912345678"; birth.Value = new DateTime(2004, 9, 21);
@@ -154,9 +185,16 @@ namespace Verification
                 { if (!process.WaitForExit(30000)) throw new TimeoutException("Database probe timed out"); return process.ExitCode; }
             });
             Check(probeExit == 0, "CSDL lưu bền: một tiến trình mới độc lập đọc lại được ít nhất 2 đăng ký");
+            await initializer.EnsureCreatedAsync();
+            Check(Convert.ToInt32(Scalar("SELECT COUNT(*) FROM dbo.Registrations")) == 2 && Convert.ToInt32(Scalar("SELECT COUNT(*) FROM dbo.SinhVien")) == 3,
+                "Cập nhật schema giữ đủ dữ liệu đăng ký và dữ liệu SinhVien");
             var table = new StringBuilder("Table,Rows\n");
-            foreach (var name in new[] { "AppUsers", "LoginAttempts", "Courses", "Registrations" }) table.AppendLine(name + "," + Scalar("SELECT COUNT(*) FROM dbo." + name));
+            foreach (var name in new[] { "AppUsers", "LoginAttempts", "Courses", "Registrations", "SinhVien" }) table.AppendLine(name + "," + Scalar("SELECT COUNT(*) FROM dbo." + name));
             File.WriteAllText(Path.Combine(output, "database-proof.csv"), table.ToString(), new UTF8Encoding(true));
+            var studentCsv = new StringBuilder("MaSV,HoTen,NgaySinh,GioiTinh,Lop,DiemTB\n");
+            foreach (var student in await sinhVienService.GetAllAsync())
+                studentCsv.AppendLine(student.MaSV + "," + student.HoTen + "," + student.NgaySinh.Value.ToString("yyyy-MM-dd") + "," + student.GioiTinh + "," + student.Lop + "," + student.DiemTB.Value.ToString("F2", System.Globalization.CultureInfo.InvariantCulture));
+            File.WriteAllText(Path.Combine(output, "sinhvien-proof.csv"), studentCsv.ToString(), new UTF8Encoding(true));
         }
     }
 }
