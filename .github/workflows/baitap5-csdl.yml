@@ -1,0 +1,41 @@
+name: Bai tap 5 - SQL Server and WinForms
+on:
+  push:
+    paths:
+      - 'BaiTap5_CSDL/**'
+      - '!BaiTap5_CSDL/images/**'
+      - 'Database/ScriptDB.sql'
+      - '.github/workflows/baitap5-csdl.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-and-verify:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: microsoft/setup-msbuild@v2
+      - name: Build, SQL integration checks and actual WinForms captures
+        shell: powershell
+        run: ./BaiTap5_CSDL/Verify.ps1
+      - name: Save verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: BaiTap5-ket-qua-chay-that
+          path: BaiTap5_CSDL/images/
+      - name: Publish generated screenshots and verification log
+        if: success() && github.ref == 'refs/heads/master'
+        shell: powershell
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- BaiTap5_CSDL/images
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 1) {
+            git commit -m 'docs: add verified WinForms screenshots and SQL test results'
+            if ($LASTEXITCODE -ne 0) { throw 'Could not commit evidence.' }
+            git push origin HEAD:master
+            if ($LASTEXITCODE -ne 0) { throw 'Could not push evidence; download workflow artifact instead.' }
+          }

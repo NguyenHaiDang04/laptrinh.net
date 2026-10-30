@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BF43CE4-F180-5DA2-B332-2E75E783AA89}</ProjectGuid>
+    <OutputType>Exe</OutputType><RootNamespace>Verification</RootNamespace><AssemblyName>Verification</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion><LangVersion>7.3</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath><DebugType>portable</DebugType>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="bin\**;obj\**" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj"><Project>{6940D49D-61DE-5329-B671-8C11AD621691}</Project><Name>Shared</Name></ProjectReference>
+    <ProjectReference Include="..\CafePOS\CafePOS.csproj"><Project>{E5BAFBD0-2EFF-5CD4-8DE2-59EC1BCF7006}</Project><Name>CafePOS</Name></ProjectReference>
+    <ProjectReference Include="..\HotelManagement\HotelManagement.csproj"><Project>{7FE61DE8-B6AE-5E42-99EC-6BDC6D650B53}</Project><Name>HotelManagement</Name></ProjectReference>
+    <ProjectReference Include="..\InventoryManagement\InventoryManagement.csproj"><Project>{24BF0C5C-C924-5C2F-8D54-776F11686EE2}</Project><Name>InventoryManagement</Name></ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

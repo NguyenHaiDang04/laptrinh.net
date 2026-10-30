@@ -1,3 +1,35 @@
+# BÀI TẬP LẬP TRÌNH .NET – NGUYỄN HẢI ĐĂNG
+
+## MỤC 1: THÔNG TIN SINH VIÊN
+
+- **Họ và tên:** Nguyễn Hải Đăng
+- **Mã sinh viên:** 24810320310
+- **Lớp:** D19QTANM1
+- **Đề tài mới:** Bài 5.3 – Quản lý quán cà phê; Bài 5.4 – Quản lý khách sạn; Bài 5.5 – Quản lý xuất nhập kho (ADO.NET, SQL Server, WinForms, 3-Tier).
+
+## MỤC 2: HƯỚNG DẪN CÀI ĐẶT & CHẠY DỰ ÁN
+
+1. Cài Visual Studio 2022 với .NET desktop development, .NET Framework 4.8 Developer Pack và SQL Server/LocalDB.
+2. Mở SSMS, chạy [Database/ScriptDB.sql](Database/ScriptDB.sql) để tạo ba CSDL và dữ liệu mẫu.
+3. Mở [BaiTap5_CSDL.sln](BaiTap5_CSDL/BaiTap5_CSDL.sln), sửa chuỗi kết nối trong App.config của ứng dụng tương ứng.
+4. Chọn CafePOS, HotelManagement hoặc InventoryManagement làm Startup Project → Build & F5.
+
+[Báo cáo chi tiết, cấu trúc DTO/DAL/BUS/GUI và hướng dẫn thao tác](BaiTap5_CSDL/README.md).
+
+## MỤC 3: HÌNH ẢNH KẾT QUẢ CÁC MÀN HÌNH CHỨC NĂNG
+
+Ảnh form WinForms thực tế với SQL Server LocalDB do bộ kiểm tra trên Windows tạo. Xem [toàn bộ 15 ảnh](BaiTap5_CSDL/README.md#mục-3-hình-ảnh-kết-quả-các-màn-hình-chức-năng), [nhật ký kiểm tra](BaiTap5_CSDL/images/verification.txt) và [trạng thái chạy](https://github.com/NguyenHaiDang04/laptrinh.net/actions/workflows/baitap5-csdl.yml).
+
+| Màn hình | Bài 5.3 – Cafe | Bài 5.4 – Hotel | Bài 5.5 – Inventory |
+|---|---|---|---|
+| Chính | ![Sơ đồ bàn](BaiTap5_CSDL/images/cafe/01_main_screen.png) | ![Phòng](BaiTap5_CSDL/images/hotel/01_main_screen.png) | ![Tồn kho](BaiTap5_CSDL/images/inventory/01_main_screen.png) |
+| CRUD | ![Thực đơn](BaiTap5_CSDL/images/cafe/02_crud_screen.png) | ![Dịch vụ](BaiTap5_CSDL/images/hotel/02_crud_screen.png) | ![Vật tư](BaiTap5_CSDL/images/inventory/02_crud_screen.png) |
+| Nghiệp vụ | ![Gọi món](BaiTap5_CSDL/images/cafe/03_transaction_screen.png) | ![Gọi dịch vụ](BaiTap5_CSDL/images/hotel/03_transaction_screen.png) | ![Lập phiếu](BaiTap5_CSDL/images/inventory/03_transaction_screen.png) |
+| Báo cáo | ![Hóa đơn cafe](BaiTap5_CSDL/images/cafe/04_report_screen.png) | ![Hóa đơn khách sạn](BaiTap5_CSDL/images/hotel/04_report_screen.png) | ![Cảnh báo](BaiTap5_CSDL/images/inventory/04_report_screen.png) |
+| Xử lý lỗi | ![Validation](BaiTap5_CSDL/images/cafe/05_error_handling.png) | ![CCCD](BaiTap5_CSDL/images/hotel/05_error_handling.png) | ![Rollback](BaiTap5_CSDL/images/inventory/05_error_handling.png) |
+
+---
+
 # BÁO CÁO BÀI TẬP WINDOWS FORMS
 - **Sinh viên:** Nguyễn Hải Đăng
 - **MSSV:** [24810320310] | **Lớp:** D19QTANM1
@@ -90,6 +122,7 @@
 ## BÀI 4.11:Quản lý đơn đăng ký dịch vụ sửa chữa
 ![Giao diện chính](./screenshots/bai4.11(1).png)
 ![Chạy tìm ko cho nhập tiền âm  ](./screenshots/bai4.11(2).png)
+
 
 
 
