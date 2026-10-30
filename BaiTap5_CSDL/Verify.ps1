@@ -1,4 +1,4 @@
-param([string]$Configuration = 'Release')
+﻿param([string]$Configuration = 'Release')
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 $instance = 'Bt5Verify_' + (Get-Date -Format 'yyyyMMddHHmmss')
