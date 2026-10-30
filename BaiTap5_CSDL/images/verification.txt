@@ -1,0 +1,39 @@
+2026-10-30 03:52:06Z
+PASS Cafe: reject empty name / negative price: Tên món không được để trống.
+PASS Cafe: category create/update/search
+PASS Cafe: category delete
+PASS Cafe: menu CRUD update
+PASS Cafe: merge same dish
+PASS Cafe: occupied table
+PASS Cafe: reject occupied destination: Bàn đích phải là bàn trống.
+PASS Cafe: atomic table move
+PASS Cafe: exact checkout total
+PASS Cafe: checkout frees table
+PASS Cafe: prevent duplicate checkout: Bàn chưa có hóa đơn cần thanh toán.
+PASS Hotel: CCCD SQL injection treated as literal
+PASS Hotel: CCCD validation: CCCD phải có đúng 12 chữ số.
+PASS Hotel: create new customer
+PASS Hotel: reject occupied room: Phòng không còn trống.
+PASS Hotel: single active booking
+PASS Hotel: hourly rounding + services
+PASS Hotel: disconnected room filter
+PASS Hotel: checkout persisted total
+PASS Hotel: cleaning state after transaction
+PASS Hotel: prevent duplicate payment: Phòng không có phiếu đang lưu trú.
+PASS Hotel: finish cleaning
+PASS Hotel: reuse existing customer
+PASS Inventory: material CRUD / parameterized search
+PASS Inventory: material delete
+PASS Inventory: supplier CRUD update
+PASS Inventory: SQL injection literal
+PASS Inventory: table survives injection
+PASS Inventory: supplier required: Phiếu nhập cần nhà cung cấp.
+PASS Inventory: import/export quantity
+PASS Inventory: ExecuteScalar stock valuation
+PASS Inventory: insufficient stock rollback: Không đủ hàng trong kho hoặc vật tư không tồn tại: VT003
+PASS Inventory: rollback removes voucher header
+PASS Inventory: rollback restores earlier line quantity
+PASS Inventory: rollback removes detail rows
+PASS Inventory: low stock alert
+PASS Inventory: negative quantity rejected: Số lượng phải dương, đơn giá không được âm.
+PASS: 37 checks; real SQL Server LocalDB + rendered WinForms.
