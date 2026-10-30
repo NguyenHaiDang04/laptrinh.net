@@ -11,7 +11,7 @@
 
 1. Cài Visual Studio 2022 với .NET desktop development, .NET Framework 4.8 Developer Pack và SQL Server/LocalDB.
 2. Mở SSMS, chạy [Database/ScriptDB.sql](Database/ScriptDB.sql) để tạo ba CSDL và dữ liệu mẫu.
-3. Mở [BaiTap5_CSDL.sln](BaiTap5_CSDL/BaiTap5_CSDL.sln), sửa chuỗi kết nối trong App.config của ứng dụng tương ứng.
+3. Mở [BaiTap5_CSDL.sln](BaiTap5_CSDL.sln), sửa chuỗi kết nối trong App.config của ứng dụng tương ứng.
 4. Chọn CafePOS, HotelManagement hoặc InventoryManagement làm Startup Project → Build & F5.
 
 [Báo cáo chi tiết, cấu trúc DTO/DAL/BUS/GUI và hướng dẫn thao tác](BaiTap5_CSDL/README.md).

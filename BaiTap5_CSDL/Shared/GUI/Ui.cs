@@ -18,7 +18,8 @@ namespace BaiTap5.Shared.GUI
         public static FlowLayoutPanel Row(Control parent)
         {
             var row = new FlowLayoutPanel { Dock = DockStyle.Top, AutoSize = true, Padding = new Padding(8), WrapContents = true };
-            parent.Controls.Add(row); row.BringToFront(); return row;
+            // Dock bố trí theo thứ tự Z ngược: các hàng Top phải đứng sau Fill.
+            parent.Controls.Add(row); return row;
         }
         public static Button Button(Control parent, string text, Action action)
         {

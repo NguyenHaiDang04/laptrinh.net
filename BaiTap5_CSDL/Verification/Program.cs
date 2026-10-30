@@ -46,9 +46,26 @@ namespace Verification
         private static void Capture(Form form,string relative)
         {
             form.Show();form.BringToFront();Application.DoEvents();form.Refresh();Application.DoEvents();
+            ValidateLayout(form);
             string path=Path.Combine(output,relative);Directory.CreateDirectory(Path.GetDirectoryName(path));
             using(var bmp=new Bitmap(form.Width,form.Height))
             {form.DrawToBitmap(bmp,new Rectangle(Point.Empty,form.Size));bmp.Save(path,ImageFormat.Png);}
+        }
+        private static void ValidateLayout(Control parent)
+        {
+            foreach(Control child in parent.Controls)
+            {
+                if(!child.Visible)continue;
+                if(child is FlowLayoutPanel && child.Dock==DockStyle.Top)
+                {
+                    if(child.Height<24 || !parent.ClientRectangle.Contains(child.Bounds))
+                        throw new Exception("Toolbar outside visible client area: "+parent.Name+" / "+child.Bounds);
+                    foreach(Control sibling in parent.Controls)
+                        if(sibling is DataGridView && sibling.Visible && sibling.Bounds.IntersectsWith(child.Bounds))
+                            throw new Exception("Toolbar overlaps DataGridView.");
+                }
+                ValidateLayout(child);
+            }
         }
         private static void Error(string message,string relative)
         {using(var dialog=new ErrorDialog(message)){Capture(dialog,relative);dialog.Close();}}
