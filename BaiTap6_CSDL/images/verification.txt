@@ -1,4 +1,6 @@
-2026-11-05 07:23:32Z
+2026-11-05 07:34:10Z
+PASS Sales form loads in WinForms design host without database initialization
+PASS Payroll form loads in WinForms design host without database initialization
 PASS Sales CRUD product update/search
 PASS Sales positive price validation: Giá phải dương, tồn phải là số nguyên không âm.
 PASS Sales customer CRUD
@@ -32,4 +34,4 @@ PASS HR prevents duplicate salary close: Tháng đã chốt lương, không th�
 PASS HR BUS/DAL reject editing closed month: Tháng đã chốt lương, không thể sửa dữ liệu.
 PASS HR database trigger blocks direct edit: Tháng đã chốt lương; không được sửa chấm công.
 PASS HR no duplicated payroll rows
-PASS: 33 checks; SQL Server LocalDB and real WinForms.
+PASS: 35 checks; SQL Server LocalDB and real WinForms.
