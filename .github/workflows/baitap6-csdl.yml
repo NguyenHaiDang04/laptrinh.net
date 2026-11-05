@@ -36,6 +36,8 @@ jobs:
           if ($LASTEXITCODE -eq 1) {
             git commit -m 'docs: add verified WinForms screenshots and SQL test results'
             if ($LASTEXITCODE -ne 0) { throw 'Could not commit evidence.' }
+            git pull --rebase origin master
+            if ($LASTEXITCODE -ne 0) { throw 'Could not synchronize evidence with repository.' }
             git push origin HEAD:master
             if ($LASTEXITCODE -ne 0) { throw 'Could not push evidence; download workflow artifact instead.' }
           }
