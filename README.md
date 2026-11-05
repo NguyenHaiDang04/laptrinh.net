@@ -1,3 +1,32 @@
+# BÀI TẬP 6.1–6.2 – LẬP TRÌNH .NET
+
+## MỤC 1: THÔNG TIN SINH VIÊN
+
+- **Họ tên:** Nguyễn Hải Đăng
+- **Mã sinh viên:** 24810320310
+- **Lớp:** D19QTANM1
+- **Đề tài:** Bài 6.1 – Bán hàng siêu thị mini; Bài 6.2 – Nhân sự và tính lương.
+
+## MỤC 2: HÌNH ẢNH KẾT QUẢ
+
+| Chức năng | Bài 6.1 | Bài 6.2 |
+|---|---|---|
+| Tổng quan | ![Hàng hóa](BaiTap6_CSDL/images/sales/01_main_screen.png) | ![Nhân sự](BaiTap6_CSDL/images/hr/01_main_screen.png) |
+| CRUD | ![Sản phẩm](BaiTap6_CSDL/images/sales/02_crud_screen.png) | ![Hồ sơ](BaiTap6_CSDL/images/hr/02_crud_screen.png) |
+| Nghiệp vụ | ![Giỏ hàng](BaiTap6_CSDL/images/sales/03_transaction_screen.png) | ![Chấm công](BaiTap6_CSDL/images/hr/03_transaction_screen.png) |
+| Báo cáo | ![Doanh thu](BaiTap6_CSDL/images/sales/04_report_screen.png) | ![Lương](BaiTap6_CSDL/images/hr/04_report_screen.png) |
+| An toàn dữ liệu | ![Rollback](BaiTap6_CSDL/images/sales/05_error_handling.png) | ![Khóa tháng](BaiTap6_CSDL/images/hr/05_error_handling.png) |
+
+Ảnh form WinForms thực tế với SQL Server LocalDB. Xem [nhật ký kiểm tra](BaiTap6_CSDL/images/verification.txt) và [GitHub Actions](https://github.com/NguyenHaiDang04/laptrinh.net/actions/workflows/baitap6-csdl.yml).
+
+## MỤC 3: CÀI ĐẶT
+
+Chạy [script SQL bài 6](BaiTap6_CSDL/Database/ScriptDB.sql) bằng SSMS; mở [BaiTap6_CSDL.sln](BaiTap6_CSDL.sln) bằng Visual Studio 2022 (.NET Framework 4.8). Sửa App.config cho SQL Server của máy và chọn RetailSales hoặc Payroll làm Startup Project → F5.
+
+[Báo cáo chi tiết, hướng dẫn chức năng và kiểm tra](BaiTap6_CSDL/README.md).
+
+---
+
 # BÀI TẬP LẬP TRÌNH .NET – NGUYỄN HẢI ĐĂNG
 
 ## MỤC 1: THÔNG TIN SINH VIÊN
