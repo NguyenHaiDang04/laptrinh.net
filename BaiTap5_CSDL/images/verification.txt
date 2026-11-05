@@ -1,4 +1,4 @@
-2026-11-05 07:21:44Z
+2026-11-05 07:23:26Z
 PASS Cafe: reject empty name / negative price: Tên món không được để trống.
 PASS Cafe: category create/update/search
 PASS Cafe: category delete
