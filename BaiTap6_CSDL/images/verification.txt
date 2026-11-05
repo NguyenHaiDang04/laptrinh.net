@@ -1,0 +1,35 @@
+2026-11-05 07:23:32Z
+PASS Sales CRUD product update/search
+PASS Sales positive price validation: Giá phải dương, tồn phải là số nguyên không âm.
+PASS Sales customer CRUD
+PASS Sales employee CRUD
+PASS Sales SQL injection literal
+PASS Sales exact total and floor reward points
+PASS Sales stock deducted
+PASS Sales reward persisted
+PASS Sales insufficient stock rollback: Không đủ hàng: SP003
+PASS Sales rollback header
+PASS Sales rollback detail
+PASS Sales rollback earlier line stock
+PASS Sales rollback points
+PASS Sales walk-in customer
+PASS Sales daily ExecuteScalar revenue
+PASS Sales Top5 SqlDataReader ranking
+PASS Sales real GUI merges scanned items
+PASS HR employee CRUD and transfer department
+PASS HR SQL injection literal
+PASS HR invalid employee validation: Ngày sinh phải theo yyyy-MM-dd và không ở tương lai.
+PASS HR adapter loads all employees
+PASS HR CommandBuilder adapter.Update saves values
+PASS HR reject days beyond calendar month: Ngày công hoặc OT vượt giới hạn tháng.
+PASS HR optimistic concurrency conflict: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
+PASS HR adapter batch rollback first update
+PASS HR transaction closes whole month
+PASS HR salary formula base + OT
+PASS HR salary formula coefficient / partial month
+PASS HR month marked locked
+PASS HR prevents duplicate salary close: Tháng đã chốt lương, không thể sửa dữ liệu.
+PASS HR BUS/DAL reject editing closed month: Tháng đã chốt lương, không thể sửa dữ liệu.
+PASS HR database trigger blocks direct edit: Tháng đã chốt lương; không được sửa chấm công.
+PASS HR no duplicated payroll rows
+PASS: 33 checks; SQL Server LocalDB and real WinForms.
