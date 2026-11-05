@@ -18,7 +18,7 @@ namespace Verification
   [STAThread]private static int Main(string[] args)
   {
    output=Path.GetFullPath(args[0]);Directory.CreateDirectory(output);Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
-   try{Sales();HR();log.AppendLine("PASS: "+checks+" checks; SQL Server LocalDB and real WinForms.");Console.WriteLine(log);return 0;}
+   try{Designers();Sales();HR();log.AppendLine("PASS: "+checks+" checks; SQL Server LocalDB and real WinForms.");Console.WriteLine(log);return 0;}
    catch(Exception ex){log.AppendLine("FAIL: "+ex);Console.Error.WriteLine(log);return 1;}
    finally{File.WriteAllText(Path.Combine(output,"verification.txt"),DateTime.UtcNow.ToString("u")+Environment.NewLine+log);}
   }
@@ -26,6 +26,13 @@ namespace Verification
   private static string Fail(Action a,string name){try{a();}catch(Exception e){checks++;log.AppendLine("PASS "+name+": "+e.Message);return e.Message;}throw new Exception("Expected failure: "+name);}
   private static void Layout(Control parent){foreach(Control c in parent.Controls){if(!c.Visible)continue;if(c is FlowLayoutPanel&&c.Dock==DockStyle.Top){if(c.Height<24||!parent.ClientRectangle.Contains(c.Bounds))throw new Exception("Toolbar not visible");foreach(Control s in parent.Controls)if(s is DataGridView&&s.Visible&&s.Bounds.IntersectsWith(c.Bounds))throw new Exception("Toolbar overlaps grid");}Layout(c);}}
   private static void Capture(Form f,string path){f.Show();Application.DoEvents();f.Refresh();Application.DoEvents();Layout(f);string file=Path.Combine(output,path);Directory.CreateDirectory(Path.GetDirectoryName(file));using(var b=new Bitmap(f.Width,f.Height)){f.DrawToBitmap(b,new Rectangle(Point.Empty,f.Size));b.Save(file,ImageFormat.Png);}}
+  private static void Designers()
+  {
+   using (var surface = new System.ComponentModel.Design.DesignSurface(typeof(RetailSales.GUI.MainForm)))
+    Check(surface.IsLoaded && surface.LoadErrors.Count == 0, "Sales form loads in WinForms design host without database initialization");
+   using (var surface = new System.ComponentModel.Design.DesignSurface(typeof(Payroll.GUI.MainForm)))
+    Check(surface.IsLoaded && surface.LoadErrors.Count == 0, "Payroll form loads in WinForms design host without database initialization");
+  }
   private static void Sales()
   {
    var bus=new SalesBus();var db=new Db("SalesDB");

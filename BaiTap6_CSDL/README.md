@@ -86,3 +86,9 @@ Script tạo instance LocalDB và tệp dữ liệu tạm riêng, nạp SQL, bui
 
 Kiểm tra gồm CRUD, tìm kiếm SQL Injection, giá/tồn, cộng điểm, khách lẻ, rollback đa dòng, doanh thu/Top 5, nạp/lưu chấm công, giới hạn ngày tháng, xung đột cập nhật và rollback adapter, công thức lương, khóa tháng và trigger chống sửa trực tiếp. [GitHub Actions](https://github.com/NguyenHaiDang04/laptrinh.net/actions/workflows/baitap6-csdl.yml) chạy cùng script trên Windows; chỉ commit ảnh và log sau khi kiểm tra thành công.
 
+
+## Cấu trúc Form và chỉnh sửa giao diện
+
+Hai form chính có đầy đủ `GUI/MainForm.cs` (xử lý sự kiện), `GUI/MainForm.Designer.cs` (InitializeComponent và khai báo control), `GUI/MainForm.resx` (tài nguyên form). Project khai báo SubType/DependentUpon để Visual Studio nhóm các file dưới MainForm.cs.
+
+Trong Solution Explorer, chọn MainForm.cs → View Designer (Shift+F7). Các tab, bảng dữ liệu, ô nhập và nút thao tác được khai báo bằng control WinForms chuẩn trong Designer. Các tab CRUD chứa vùng trống khi thiết kế; CatalogPanel dùng chung được gắn vào các tab này khi chạy, sau khi khởi tạo BUS. Mở form ở chế độ thiết kế không nạp CSDL.
