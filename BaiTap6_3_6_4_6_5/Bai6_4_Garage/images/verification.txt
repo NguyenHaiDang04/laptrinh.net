@@ -1,0 +1,17 @@
+﻿PASS: Script có xe, chủ xe và phụ tùng mẫu.
+PASS: Tra cứu biển số bằng tham số và điền dữ liệu xe.
+PASS: Chuỗi giống SQL injection không mở rộng kết quả tra cứu.
+PASS: Tiếp nhận đồng thời chủ xe mới và xe mới.
+PASS: Sửa thông tin chủ xe từ form.
+PASS: Sửa thông tin xe từ form.
+PASS: Xóa xe chưa có phiếu, rồi xóa được chủ xe không còn xe.
+PASS: CRUD phụ tùng cập nhật đúng giá và tồn kho.
+PASS: Xóa được phụ tùng chưa sử dụng.
+PASS: Thêm dòng nháp chưa trừ tồn kho.
+PASS: Lập phiếu, lưu chi tiết và trừ kho cùng giao dịch; tổng đúng 300.000 đ.
+PASS: Thanh toán cập nhật trạng thái phiếu.
+PASS: Tệp hóa đơn TXT có biển số, phụ tùng và trạng thái thanh toán.
+PASS: Phiếu đã thanh toán bật xuất hóa đơn và khóa thanh toán lại.
+PASS: Rollback thật: phiếu mới, chi tiết mới và phần đã trừ ở dòng trước đều được hoàn tác.
+PASS: Form báo lỗi thiếu tồn kho.
+RESULT: PASS (16 kiểm tra)

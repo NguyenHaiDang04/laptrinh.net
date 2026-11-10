@@ -1,0 +1,15 @@
+﻿PASS: Script tạo hai dự án và ba thành viên mẫu.
+PASS: Lọc theo dự án và trạng thái In Progress.
+PASS: Đổi dự án áp dụng đồng thời bộ lọc.
+PASS: Kanban hiển thị Review và Done đúng nhóm.
+PASS: Thêm và sửa dự án từ form.
+PASS: Xóa được dự án rỗng.
+PASS: Tạo task và lưu hai phân công vào SQL Server.
+PASS: Chọn lại task hiện đúng thành viên đã phân công.
+PASS: Sửa phân công giữ thành viên cũ và đổi thành viên thứ hai.
+PASS: Nút chuyển trạng thái cập nhật task thành Done.
+PASS: SqlDataReader trả đúng task quá hạn và loại task Done.
+PASS: Báo cáo GROUP BY tính đúng 2/3 = 66,67%.
+PASS: Chuỗi giống SQL injection được lưu nguyên văn và bảng DuAn vẫn còn.
+PASS: Xóa task và các phân công liên quan.
+RESULT: PASS (14 kiểm tra)

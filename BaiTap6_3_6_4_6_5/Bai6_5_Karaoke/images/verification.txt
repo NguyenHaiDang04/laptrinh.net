@@ -1,0 +1,15 @@
+﻿PASS: Nạp sáu phòng từ SQL và tô xanh phòng trống.
+PASS: Thêm và sửa dịch vụ trên form.
+PASS: Xóa dịch vụ chưa sử dụng.
+PASS: Thêm và sửa giá phòng trống.
+PASS: Xóa phòng chưa có hóa đơn.
+PASS: Mở phòng tạo hóa đơn với GETDATE() và chuyển màu đỏ.
+PASS: Mở phòng đang hát bị chặn, không tạo hóa đơn trùng.
+PASS: SqlDataAdapter và DataTable hiện hai dòng, gộp dịch vụ trùng và chưa trừ kho.
+PASS: Timer cập nhật thời gian hát khi form đang mở.
+PASS: Tiền phòng khớp khoảng 90 phút sử dụng và tiền dịch vụ đúng 109.000 đ.
+PASS: Thanh toán đã trừ kho và trả phòng về màu xanh.
+PASS: Thiếu tồn kho ở dòng sau: hoàn tác hóa đơn và cả phần kho vừa trừ ở dòng trước.
+PASS: Form báo lỗi hoàn tác thanh toán.
+PASS: Bỏ dòng thiếu kho rồi thanh toán lại thành công.
+RESULT: PASS (14 kiểm tra)

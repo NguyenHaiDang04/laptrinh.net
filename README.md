@@ -1,3 +1,29 @@
+# Bài tập 6.3, 6.4 và 6.5 — Lập trình .NET
+
+- Họ và tên: Nguyễn Hải Đăng
+- Mã sinh viên: 24810320310
+- Lớp: D19QTANM1
+
+| Bài | Chức năng | Mã nguồn và hướng dẫn |
+|---|---|---|
+| 6.3 | Quản lý công việc và tiến độ dự án | [Bài 6.3](BaiTap6_3_6_4_6_5/Bai6_3_ProjectTask/README.md) |
+| 6.4 | Quản lý garage và bảo dưỡng ô tô | [Bài 6.4](BaiTap6_3_6_4_6_5/Bai6_4_Garage/README.md) |
+| 6.5 | Quản lý phòng hát và dịch vụ karaoke | [Bài 6.5](BaiTap6_3_6_4_6_5/Bai6_5_Karaoke/README.md) |
+
+## Hình ảnh kết quả bài 6.3–6.5
+
+| Màn hình | Bài 6.3 | Bài 6.4 | Bài 6.5 |
+|---|---|---|---|
+| Tổng quan | ![Tổng quan](BaiTap6_3_6_4_6_5/Bai6_3_ProjectTask/images/01_main_screen.png) | ![Tổng quan](BaiTap6_3_6_4_6_5/Bai6_4_Garage/images/01_main_screen.png) | ![Tổng quan](BaiTap6_3_6_4_6_5/Bai6_5_Karaoke/images/01_main_screen.png) |
+| Quản lý danh mục | ![Quản lý danh mục](BaiTap6_3_6_4_6_5/Bai6_3_ProjectTask/images/02_crud_screen.png) | ![Quản lý danh mục](BaiTap6_3_6_4_6_5/Bai6_4_Garage/images/02_crud_screen.png) | ![Quản lý danh mục](BaiTap6_3_6_4_6_5/Bai6_5_Karaoke/images/02_crud_screen.png) |
+| Nghiệp vụ | ![Nghiệp vụ](BaiTap6_3_6_4_6_5/Bai6_3_ProjectTask/images/03_transaction_screen.png) | ![Nghiệp vụ](BaiTap6_3_6_4_6_5/Bai6_4_Garage/images/03_transaction_screen.png) | ![Nghiệp vụ](BaiTap6_3_6_4_6_5/Bai6_5_Karaoke/images/03_transaction_screen.png) |
+| Báo cáo | ![Báo cáo](BaiTap6_3_6_4_6_5/Bai6_3_ProjectTask/images/04_report_screen.png) | ![Báo cáo](BaiTap6_3_6_4_6_5/Bai6_4_Garage/images/04_report_screen.png) | ![Báo cáo](BaiTap6_3_6_4_6_5/Bai6_5_Karaoke/images/04_report_screen.png) |
+| An toàn dữ liệu | ![An toàn dữ liệu](BaiTap6_3_6_4_6_5/Bai6_3_ProjectTask/images/05_error_handling.png) | ![An toàn dữ liệu](BaiTap6_3_6_4_6_5/Bai6_4_Garage/images/05_error_handling.png) | ![An toàn dữ liệu](BaiTap6_3_6_4_6_5/Bai6_5_Karaoke/images/05_error_handling.png) |
+
+Mỗi bài có solution C# WinForms .NET Framework 4.8, các thư mục DTO/DAL/BUS/GUI và script SQL Server. [Hướng dẫn chạy và kết quả kiểm tra 44/44](BaiTap6_3_6_4_6_5/README.md).
+
+---
+
 # BÀI TẬP 6.1–6.2 – LẬP TRÌNH .NET
 
 ## MỤC 1: THÔNG TIN SINH VIÊN
