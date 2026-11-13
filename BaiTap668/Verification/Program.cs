@@ -19,16 +19,16 @@ namespace Verification
   private static string output;private static int count;private static readonly System.Text.StringBuilder log=new System.Text.StringBuilder();
   [STAThread]private static int Main(string[] args)
   {
-   output=Path.GetFullPath(args[0]);Directory.CreateDirectory(output);Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
+   output=Path.GetFullPath(args[0]);Directory.CreateDirectory(output);Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);Ui.ErrorHandler=e=>{throw new InvalidOperationException("GUI event failed",e);};Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
    try{Designers();LibraryTests();ClinicTests();BilliardsTests();log.AppendLine("PASS: "+count+" checks; SQL Server LocalDB + real WinForms.");Console.WriteLine(log);return 0;}
    catch(Exception e){log.AppendLine("FAIL: "+e);Console.Error.WriteLine(log);return 1;}
    finally{File.WriteAllText(Path.Combine(output,"verification.txt"),DateTime.UtcNow.ToString("u")+Environment.NewLine+log);}
   }
-  private static void Check(bool condition,string title){if(!condition)throw new Exception(title);count++;log.AppendLine("PASS "+title);}
+  private static void Check(bool condition,string title){if(!condition)throw new Exception(title);count++;Console.WriteLine("PASS "+title);log.AppendLine("PASS "+title);}
   private static string Fail(Action action,string title){try{action();}catch(Exception e){count++;log.AppendLine("PASS "+title+": "+e.Message);return e.Message;}throw new Exception("Expected failure: "+title);}
   private static void Designers(){foreach(var type in new[]{typeof(Library.GUI.MainForm),typeof(Clinic.GUI.MainForm),typeof(Billiards.GUI.MainForm)})using(var s=new DesignSurface(type))Check(s.IsLoaded&&s.LoadErrors.Count==0,type.Namespace+" loads in design host without database initialization");}
   private static void Layout(Control parent){foreach(Control c in parent.Controls){if(!c.Visible)continue;if(c is FlowLayoutPanel&&c.Dock==DockStyle.Top){if(c.Height<24||!parent.ClientRectangle.Contains(c.Bounds))throw new Exception("Toolbar outside visible area");foreach(Control s in parent.Controls)if(s is DataGridView&&s.Visible&&s.Bounds.IntersectsWith(c.Bounds))throw new Exception("Toolbar overlaps grid");}Layout(c);}}
-  private static void Capture(Form f,string path){f.Show();Application.DoEvents();f.Refresh();Application.DoEvents();Layout(f);string file=Path.Combine(output,path);Directory.CreateDirectory(Path.GetDirectoryName(file));using(var b=new Bitmap(f.Width,f.Height)){f.DrawToBitmap(b,new Rectangle(Point.Empty,f.Size));b.Save(file,ImageFormat.Png);}}
+  private static void Capture(Form f,string path){Console.WriteLine("CAPTURE "+path);f.Show();Application.DoEvents();f.Refresh();Application.DoEvents();Layout(f);string file=Path.Combine(output,path);Directory.CreateDirectory(Path.GetDirectoryName(file));using(var b=new Bitmap(f.Width,f.Height)){f.DrawToBitmap(b,new Rectangle(Point.Empty,f.Size));b.Save(file,ImageFormat.Png);}}
   private static void Error(string text,string path){using(var f=new ErrorDialog(text)){Capture(f,path);f.Close();}}
   private static void LibraryTests()
   {

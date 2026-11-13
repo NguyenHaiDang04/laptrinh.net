@@ -8,6 +8,7 @@ namespace BaiTap668.Shared.GUI
 {
     public static class Ui
     {
+        public static Action<Exception> ErrorHandler;
         public static void Style(Form form, string title)
         {
             form.Text = title + " | Nguyễn Hải Đăng - 24810320310";
@@ -29,7 +30,7 @@ namespace BaiTap668.Shared.GUI
         public static void Guard(Action action)
         {
             try { action(); }
-            catch (Exception ex) { using (var error = new ErrorDialog(ex.Message)) error.ShowDialog(); }
+            catch (Exception ex) { if (ErrorHandler != null) { ErrorHandler(ex); return; } using (var error = new ErrorDialog(ex.Message)) error.ShowDialog(); }
         }
         public static void Label(Control row, string text) { row.Controls.Add(new Label { Text = text, AutoSize = true, Margin = new Padding(5, 8, 5, 0) }); }
         public static TextBox Text(Control row, string label, int width = 150)

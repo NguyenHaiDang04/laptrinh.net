@@ -30,7 +30,17 @@ try {
     $exe = Join-Path $root "Verification\bin\$Configuration\Verification.exe"
     $config = "$exe.config"
     (Get-Content $config -Raw).Replace('(localdb)\MSSQLLocalDB', "(localdb)\$instance") | Set-Content $config -Encoding UTF8
-    & $exe (Join-Path $root 'images')
+    $images = Join-Path $root 'images'
+    New-Item -ItemType Directory -Force $images | Out-Null
+    $process = Start-Process -FilePath $exe -ArgumentList ('"' + $images + '"') -PassThru -NoNewWindow -RedirectStandardOutput (Join-Path $images 'stdout.txt') -RedirectStandardError (Join-Path $images 'stderr.txt')
+    if (-not $process.WaitForExit(120000)) {
+        $process.Kill()
+        throw 'Verification timed out. See images/stdout.txt for the last completed step.'
+    }
+    $process.WaitForExit()
+    Get-Content (Join-Path $images 'stdout.txt')
+    Get-Content (Join-Path $images 'stderr.txt')
+    $global:LASTEXITCODE = $process.ExitCode
     if ($LASTEXITCODE -ne 0) { throw 'Kiểm tra tích hợp không thành công; xem images/verification.txt.' }
 } finally {
     if ($created) {
