@@ -1,0 +1,95 @@
+﻿PASS Library.GUI loads in design host without database initialization
+PASS Clinic.GUI loads in design host without database initialization
+PASS Billiards.GUI loads in design host without database initialization
+PASS Library book create/update/search
+PASS Library book delete
+PASS Library reader CRUD
+PASS Library SQL injection literal
+PASS Library expired card leaves no loan
+PASS Library borrow deducts stock
+PASS Library reader and status filter
+PASS Library rollback header and earlier stock
+PASS Library reader-based overdue query and status
+PASS Library GROUP BY genre statistics
+CAPTURE library/01_main_screen.png
+CAPTURE library/02_crud_screen.png
+CAPTURE library/03_transaction_screen.png
+CAPTURE library/04_report_screen.png
+PASS Library return restores stock
+PASS Library return overdue loan excludes alert
+CAPTURE library/05_error_handling.png
+PASS Clinic phone SQL injection literal
+PASS Clinic drug CRUD
+PASS Clinic new/existing patient admission
+PASS Clinic exact exam + drug total
+PASS Clinic prescription deducts stock
+PASS Clinic rollback order and details
+PASS Clinic rollback earlier stock and diagnosis
+PASS Clinic restock
+PASS Clinic invoice preserves historical unit price
+PASS Clinic paid invoice status
+CAPTURE clinic/01_main_screen.png
+CAPTURE clinic/02_crud_screen.png
+CAPTURE clinic/03_transaction_screen.png
+CAPTURE clinic/04_report_screen.png
+CAPTURE clinic/05_error_handling.png
+PASS Billiards server price ignores modified client price
+PASS Billiards draft does not deduct stock before checkout
+PASS Billiards 15-minute blocks + saved services
+CAPTURE billiards/01_main_screen.png
+CAPTURE billiards/02_crud_screen.png
+PASS Billiards real DataTable quantity increase/save
+CAPTURE billiards/03_transaction_screen.png
+PASS Billiards exact checkout total
+PASS Billiards stock deduction excludes rentals
+PASS Billiards checkout frees table
+CAPTURE billiards/04_report_screen.png
+PASS Billiards rollback restores earlier service stock
+PASS Billiards rollback leaves table and bill open
+CAPTURE billiards/05_error_handling.png
+PASS Library.GUI loads in design host without database initialization
+PASS Clinic.GUI loads in design host without database initialization
+PASS Billiards.GUI loads in design host without database initialization
+PASS Library book create/update/search
+PASS Library book delete
+PASS Library reader CRUD
+PASS Library SQL injection literal
+PASS Library expired card rejected: Thẻ độc giả đã hết hạn hoặc không tồn tại.
+PASS Library expired card leaves no loan
+PASS Library borrow deducts stock
+PASS Library reader and status filter
+PASS Library multi-line insufficient stock rollback: Không đủ sách: 3
+PASS Library rollback header and earlier stock
+PASS Library reader-based overdue query and status
+PASS Library GROUP BY genre statistics
+PASS Library return restores stock
+PASS Library duplicate return prevented: Phiếu đã trả hoặc không tồn tại.
+PASS Library return overdue loan excludes alert
+PASS Clinic phone SQL injection literal
+PASS Clinic drug CRUD
+PASS Clinic new/existing patient admission
+PASS Clinic exact exam + drug total
+PASS Clinic prescription deducts stock
+PASS Clinic duplicate prescription prevented: Hồ sơ đã có đơn thuốc.
+PASS Clinic insufficient drug transaction rollback: Không đủ thuốc: 2
+PASS Clinic rollback order and details
+PASS Clinic rollback earlier stock and diagnosis
+PASS Clinic restock
+PASS Clinic invoice preserves historical unit price
+PASS Clinic duplicate payment rejected: Đơn đã thanh toán hoặc không tồn tại.
+PASS Clinic paid invoice status
+PASS Billiards duplicate open rejected: Bàn không trống.
+PASS Billiards server price ignores modified client price
+PASS Billiards draft does not deduct stock before checkout
+PASS Billiards 15-minute blocks + saved services
+PASS Billiards real DataTable quantity increase/save
+PASS Billiards exact checkout total
+PASS Billiards stock deduction excludes rentals
+PASS Billiards checkout frees table
+PASS Billiards duplicate checkout rejected: Bàn chưa mở hoặc đã thanh toán.
+PASS Billiards insufficient service checkout rollback: Không đủ tồn dịch vụ: 2
+PASS Billiards rollback restores earlier service stock
+PASS Billiards rollback leaves table and bill open
+PASS: 43 checks; SQL Server LocalDB + real WinForms.
+
+
