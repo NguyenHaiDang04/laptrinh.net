@@ -2,9 +2,9 @@ name: Bai 6.6-6.8 - SQL Server and WinForms
 on:
   push:
     paths:
-      - 'BaiTap66868/**'
-      - '!BaiTap66868/images/**'
-      - 'BaiTap66868.sln'
+      - 'BaiTap668/**'
+      - '!BaiTap668/images/**'
+      - 'BaiTap668.sln'
       - '.github/workflows/baitap668-csdl.yml'
   workflow_dispatch:
 permissions:
@@ -18,20 +18,20 @@ jobs:
       - uses: microsoft/setup-msbuild@v2
       - name: Build, SQL integration checks and actual WinForms captures
         shell: powershell
-        run: ./BaiTap66868/Verify.ps1
+        run: ./BaiTap668/Verify.ps1
       - name: Save verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: BaiTap668-ket-qua-chay-that
-          path: BaiTap66868/images/
+          path: BaiTap668/images/
       - name: Publish generated screenshots and verification log
         if: success() && github.ref == 'refs/heads/master'
         shell: powershell
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- BaiTap66868/images
+          git add -- BaiTap668/images
           git diff --cached --quiet
           if ($LASTEXITCODE -eq 1) {
             git commit -m 'docs: add verified WinForms screenshots and SQL test results'
