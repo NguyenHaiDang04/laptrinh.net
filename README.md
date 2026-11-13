@@ -1,3 +1,22 @@
+# BÀI TẬP 6.6–6.7–6.8
+
+- **Sinh viên:** Nguyễn Hải Đăng – **24810320310** – **D19QTANM1**
+- **Đề tài:** Quản lý thư viện, phòng khám và câu lạc bộ bida.
+
+Mở [BaiTap668.sln](BaiTap668.sln); chạy [script SQL](BaiTap668/Database/ScriptDB.sql), sửa App.config và chọn Library / Clinic / Billiards làm Startup Project.
+
+[Báo cáo, hướng dẫn chi tiết và 15 ảnh](BaiTap668/README.md) · [Nhật ký kiểm tra](BaiTap668/images/verification.txt) · [GitHub Actions](https://github.com/NguyenHaiDang04/laptrinh.net/actions/workflows/baitap668-csdl.yml)
+
+| Màn hình | Thư viện | Phòng khám | Bida |
+|---|---|---|---|
+| Tổng quan | ![Tổng quan](BaiTap668/images/library/01_main_screen.png) | ![Tổng quan](BaiTap668/images/clinic/01_main_screen.png) | ![Tổng quan](BaiTap668/images/billiards/01_main_screen.png) |
+| CRUD | ![CRUD](BaiTap668/images/library/02_crud_screen.png) | ![CRUD](BaiTap668/images/clinic/02_crud_screen.png) | ![CRUD](BaiTap668/images/billiards/02_crud_screen.png) |
+| Nghiệp vụ | ![Nghiệp vụ](BaiTap668/images/library/03_transaction_screen.png) | ![Nghiệp vụ](BaiTap668/images/clinic/03_transaction_screen.png) | ![Nghiệp vụ](BaiTap668/images/billiards/03_transaction_screen.png) |
+| Báo cáo | ![Báo cáo](BaiTap668/images/library/04_report_screen.png) | ![Báo cáo](BaiTap668/images/clinic/04_report_screen.png) | ![Báo cáo](BaiTap668/images/billiards/04_report_screen.png) |
+| Xử lý lỗi | ![Xử lý lỗi](BaiTap668/images/library/05_error_handling.png) | ![Xử lý lỗi](BaiTap668/images/clinic/05_error_handling.png) | ![Xử lý lỗi](BaiTap668/images/billiards/05_error_handling.png) |
+
+---
+
 # Bài tập 6.3, 6.4 và 6.5 — Lập trình .NET
 
 - Họ và tên: Nguyễn Hải Đăng
