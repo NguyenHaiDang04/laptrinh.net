@@ -32,15 +32,35 @@ try {
     (Get-Content $config -Raw).Replace('(localdb)\MSSQLLocalDB', "(localdb)\$instance") | Set-Content $config -Encoding UTF8
     $images = Join-Path $root 'images'
     New-Item -ItemType Directory -Force $images | Out-Null
-    $process = Start-Process -FilePath $exe -ArgumentList ('"' + $images + '"') -PassThru -NoNewWindow -RedirectStandardOutput (Join-Path $images 'stdout.txt') -RedirectStandardError (Join-Path $images 'stderr.txt')
+    $startInfo = New-Object System.Diagnostics.ProcessStartInfo
+    $startInfo.FileName = $exe
+    $startInfo.Arguments = '"' + $images + '"'
+    $startInfo.UseShellExecute = $false
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.RedirectStandardError = $true
+    $startInfo.StandardOutputEncoding = New-Object System.Text.UTF8Encoding($false)
+    $startInfo.StandardErrorEncoding = New-Object System.Text.UTF8Encoding($false)
+    $process = New-Object System.Diagnostics.Process
+    $process.StartInfo = $startInfo
+    [void]$process.Start()
+    $outputTask = $process.StandardOutput.ReadToEndAsync()
+    $errorTask = $process.StandardError.ReadToEndAsync()
     if (-not $process.WaitForExit(120000)) {
         $process.Kill()
-        throw 'Verification timed out. See images/stdout.txt for the last completed step.'
+        $process.WaitForExit()
+        $outputTask.Result | Set-Content (Join-Path $images 'stdout.txt') -Encoding UTF8
+        $errorTask.Result | Set-Content (Join-Path $images 'stderr.txt') -Encoding UTF8
+        $outputTask.Result | Write-Output
+        throw 'Verification timed out; see images/stdout.txt.'
     }
     $process.WaitForExit()
-    Get-Content (Join-Path $images 'stdout.txt')
-    Get-Content (Join-Path $images 'stderr.txt')
-    $global:LASTEXITCODE = $process.ExitCode
+    $outputTask.Result | Set-Content (Join-Path $images 'stdout.txt') -Encoding UTF8
+    $errorTask.Result | Set-Content (Join-Path $images 'stderr.txt') -Encoding UTF8
+    $outputTask.Result | Write-Output
+    $errorTask.Result | Write-Output
+    $verificationExitCode = $process.ExitCode
+    $process.Dispose()
+    $global:LASTEXITCODE = $verificationExitCode
     if ($LASTEXITCODE -ne 0) { throw 'Kiểm tra tích hợp không thành công; xem images/verification.txt.' }
 } finally {
     if ($created) {

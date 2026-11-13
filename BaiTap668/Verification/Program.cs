@@ -19,7 +19,7 @@ namespace Verification
   private static string output;private static int count;private static readonly System.Text.StringBuilder log=new System.Text.StringBuilder();
   [STAThread]private static int Main(string[] args)
   {
-   output=Path.GetFullPath(args[0]);Directory.CreateDirectory(output);Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);Ui.ErrorHandler=e=>{throw new InvalidOperationException("GUI event failed",e);};Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
+   Console.OutputEncoding=new System.Text.UTF8Encoding(false);output=Path.GetFullPath(args[0]);Directory.CreateDirectory(output);Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);Ui.ErrorHandler=e=>{throw new InvalidOperationException("GUI event failed",e);};Application.EnableVisualStyles();Application.SetCompatibleTextRenderingDefault(false);
    try{Designers();LibraryTests();ClinicTests();BilliardsTests();log.AppendLine("PASS: "+count+" checks; SQL Server LocalDB + real WinForms.");Console.WriteLine(log);return 0;}
    catch(Exception e){log.AppendLine("FAIL: "+e);Console.Error.WriteLine(log);return 1;}
    finally{File.WriteAllText(Path.Combine(output,"verification.txt"),DateTime.UtcNow.ToString("u")+Environment.NewLine+log);}
