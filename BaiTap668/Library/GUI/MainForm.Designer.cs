@@ -213,7 +213,9 @@ namespace Library.GUI
             this.dueLabel.Text = "Hạn trả";
             this.dueLabel.AutoSize = true;
             this.dueLabel.Margin = new System.Windows.Forms.Padding(5, 8, 5, 0);
-            this.due.Width = 160;
+            this.due.Width = 180;
+            this.due.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.due.CustomFormat = "dd/MM/yyyy HH:mm";
             this.overduePage.Text = "Cảnh báo quá hạn";
             this.overduePage.Padding = new System.Windows.Forms.Padding(8);
             this.overdue.Dock = System.Windows.Forms.DockStyle.Fill;
